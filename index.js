@@ -43,14 +43,14 @@ async function run (){
             res.send({count})
         })
 
-        app.post('/productsByKeys',async(req,res)=>{
-            const keys=req.body
-            const ids = keys.map((id) => ObjectId(id));
-            const query={_id:{$in:ids}}
-            const cursor = productsCollection.find(query); 
-            const result=await cursor.toArray()
-            res.send(result)
-        })
+        app.post("/productsByKeys", async (req, res) => {
+          const keys = req.body;
+          const ids = keys.map((id) => ObjectId(id));
+          const query = { _id: { $in: ids } };
+          const cursor = productsCollection.find(query);
+          const result = await cursor.toArray();
+          res.send(result);
+        });
 
 
     } finally{
