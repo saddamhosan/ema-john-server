@@ -44,7 +44,6 @@ async function run (){
         })
 
         app.post('/productsByKeys',async(req,res)=>{
-            console.log(req.body);
             const keys=req.body
             const ids = keys.map((id) => ObjectId(id));
             const query={_id:{$in:ids}}
